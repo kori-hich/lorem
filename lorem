@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="p9.jpg">
+    <title>MUG new world</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
+        header {
+            position: fixed;
+        }
+
+        #a {
+            background-color: rgb(0, 0, 0);
+            color: beige;
+            border: 0.1px solid rgb(255, 255, 255);
+            padding: 10px;
+        }
+
+        .mug {
+            background-color: #000000;
+            padding: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: large;
+            color: white;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .progress {
+            height: 3px;
+            width: 0%;
+            background-color: rgb(0, 255, 247);
+            position: fixed;
+            top: 0;
+            left: 0;
+            animation: progress 1s;
+        }
+
+        @keyframes progress {
+            to {
+                background-color: rgb(0, 34, 255);
+                width: 100%;
+            }
+        }
+
+        :root * {
+            animation-play-state: paused;
+            animation-delay: calc(var(--scroll) * -1s);
+            animation-iteration-count: 1;
+            animation-fill-mode: both;
+        }
+
+        #a:hover {
+            background-color: beige;
+            color: #000000;
+            border: 0.1px solid rgb(255, 255, 255);
+        }
+
+        #a:active {
+            background-color: #000000;
+            color: beige;
+        }
+
+        .ul {
+            background-color: black;
+            padding: 10px;
+        }
+
+        li {
+            cursor: pointer;
+            padding: 10px;
+            display: inline-block;
+            background-color: beige;
+            border: 0.1px solid rgb(0, 0, 0);
+            transition-duration: 0.1s;
+        }
+
+        li:hover {
+            background-color: rgb(0, 0, 0);
+            color: white;
+        }
+
+        li:active {
+            background-color: beige;
+            color: rgb(0, 0, 0);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #000000;
+            padding: 5px;
+        }
+
+        .dropdown-content a {
+            background-color: beige;
+            color: #000000;
+            border: 1px solid black;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #626262;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            top: 50px;
+        }
+
+        .dd-c {
+            display: none;
+            position: absolute;
+            background-color: #000000;
+            color: white;
+            border: 1px solid rgb(255, 255, 255, 0.5);
+
+        }
+
+        .dd-c a {
+            color: rgb(255, 255, 255);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dd-c a:hover {
+            background-color: #000000;
+        }
+
+        .dd:hover .dd-c {
+            display: block;
+            padding: 10px;
+            border-radius: 20px;
+            top: 50px;
+            left: 200px;
+        }
+
+        .dark-mood {
+
+            background-color: black;
+            color: beige;
+
+            .mug {
+                border: 1px solid wheat;
+            }
+
+            .child {
+                border: 1px solid aqua;
+            }
+
+            a li {
+                background-color: beige;
+                color: black;
+                border: 0.1px solid rgb(0, 0, 0);
+
+            }
+
+            #a {
+                background-color: beige;
+                color: #000000;
+                border: 1px solid black;
+            }
+
+            #a:hover {
+                background-color: #000000;
+                color: beige;
+            }
+
+            .ul {
+                background-color: rgb(247, 247, 192);
+                padding: 10px;
+            }
+
+            li {
+                padding: 10px;
+                display: inline-block;
+                background-color: rgb(0, 0, 0);
+                color: white;
+                border: 0.1px solid beige;
+            }
+
+            li:hover {
+                background-color: rgb(255, 255, 255);
+                color: rgb(0, 0, 0);
+            }
+
+            li:active {
+                background-color: rgb(0, 0, 0);
+                color: beige;
+            }
+
+            #a:active {
+                background-color: #000000;
+                color: beige;
+            }
+
+            .side-nav {
+                background-color: beige;
+            }
+
+            .side-nav a {
+                color: #000000;
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                margin: 10px;
+                border-radius: 25px;
+            }
+
+            .side-nav a:hover {
+                background-color: #000000;
+                color: beige;
+            }
+
+            .footer {
+                background-color: rgb(247, 247, 192);
+                color: black;
+            }
+
+            .icon {
+                color: #000000;
+            }
+            .topimage img{
+                box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        .highlight {
+            color: rgb(255, 255, 255);
+            background-color: blue;
+            font-weight: bold;
+        }
+
+        #searchBox {
+            border-radius: 40px;
+            border: 1px solid black;
+            width: 50px;
+            padding: 1px;
+        }
+
+        .searchbox {
+            padding: 1px;
+            border-radius: 40px;
+            border: 0.5px solid rgb(255, 255, 255);
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+        }
+
+        .icon {
+            text-decoration: none;
+            color: beige;
+        }
+
+        footer {
+            background-color: #000000;
+            padding: 10px;
+            font-size: large;
+            color: white;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .footer {
+            padding: 10px;
+            border: 1px solid rgba(128, 128, 128, 0.4);
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .footer i {
+            margin: 5px;
+            padding: 5px;
+            border-radius: 20px;
+            display: inline;
+        }
+
+        .footer i:hover {
+            color: rgb(0, 136, 255);
+        }
+
+        footer p {
+            color: rgba(240, 248, 255, 0.642);
+            font-size: small;
+        }
+
+        .parent {
+            text-align: center;
+        }
+
+        .child {
+            width: 650px;
+            border: 1px solid black;
+            position: relative;
+            display: inline-block;
+        }
+
+        .side-nav {
+            width: 0px;
+            height: 100%;
+            position: fixed;
+            background-color: #000000;
+            transition: 0.5s;
+            padding-top: 60px;
+            color: white;
+            text-align: center;
+            left: 9px;
+            top: 9px;
+        }
+
+        .side-nav a {
+            text-decoration: none;
+            font-size: 22px;
+            color: white;
+            display: block;
+            transition: 0.2s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 10px;
+            border-radius: 25px;
+        }
+
+        .side-nav a:hover {
+            color: black;
+            background-color: rgba(245, 245, 220, 0.553);
+        }
+
+        .menu-icon {
+            position: fixed;
+            cursor: pointer;
+            left: 9px;
+            top: 9px;
+            background-color: #ffffff;
+            border-radius: 25px;
+        }
+
+        .bar {
+            width: 25px;
+            height: 5px;
+            background-color: black;
+            margin: 6px;
+            transition: 0.2s;
+        }
+
+        .change .bar:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 5px);
+        }
+
+        .change .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .change .bar:nth-child(3) {
+            transform: rotate(45deg) translate(-10px, -10px);
+        }
+
+        .sandwich {
+            visibility: hidden;
+        }
+
+        @media screen and (max-width:600px) {
+            .sandwich {
+                visibility: visible;
+            }
+
+            .ul {
+                visibility: hidden;
+            }
+
+            .child {
+                width: 250px;
+            }
+
+            body {
+                overflow-x: hidden;
+            }
+
+            /* .slider {
+                width: 250px;
+            } */
+        }
+
+        .slider {
+            width: 450px;
+            position: relative;
+            display: inline-block;
+            overflow-x: scroll;
+            padding: 100px;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-out;
+            width: 500px;
+        }
+
+        .slides img {
+            width: 150px;
+            height: 300px;
+            border-radius: 100px;
+            margin: 5px;
+            filter: blur(2px);
+            transition-duration: 0.2s;
+        }
+
+        .slides img:hover {
+            filter: blur(0px);
+        }
+
+        .nav-buttons button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border-radius: 25px;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .nav-buttons button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .container {
+            text-align: center;
+        }
+        .topimage{
+            text-align: center;
+        }
+        .topimage img {
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+            border-radius: 25px;
+            display: inline-block;
+            width: 150px;
+            height: 300px;
+            padding: 50px;
+            opacity: 0;
+            transform: translateY(200px);
+            transition: all 1s ease-in-out;
+        }
+
+        img.show {
+            opacity: 1;
+            transform: translatex(0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="progress"></div>
+    <div class="mug">MUG </div>
+    <header style="position: sticky; top: 5px;">
+        <ul class="sandwich">
+
+            <div id="navbar" class="side-nav">
+                <a href="#">home</a>
+                <a href="#">about</a>
+                <a href="#">products</a>
+                <a href="#">tel</a>
+                <a id="b" title="dark/light" onclick="myfuncion()">☼</a>
+            </div>
+
+            <div class="menu-icon" onclick="toggleNav()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </ul>
+        <ul class="ul">
+            <li title="home"><a>Home</a></li>
+            <li title="News"><a>News</a></li>
+            <li class="dropdown" title="Products"><a class="dropbtn">Products</a>
+                <div class="dropdown-content"><a>Link 1</a><a>Link 2</a><a>Link 3</a></div>
+            </li>
+            <li class="dd" title="telephone"><a class="dt">tel</a>
+                <div class="dd-c">09913861265</div>
+            </li>
+            <a id="a" title="dark/light" onclick="myfuncion()">☼</a>
+            <li title="searching"><input type="text" id="searchBox" placeholder="search...">
+                <button onclick="searchText()" class="searchbox">search</button>
+            </li>
+        </ul>
+        <p id="notFoundMessage" style="color: red; display: none;">not found</p>
+    </header>
+    <div class="topimage">
+        <img src="p10.jpg">
+        <img src="p14.jpg">
+        <img src="p16.jpg">
+        <img src="p15.jpg">
+        <img src="p9.jpg">
+        <img src="p6.jpg">
+        <img src="p4.jpg">
+        <img src="p17.jpg">
+        <img src="p10.jpg">
+    </div>
+    <div id="content" class="parent">
+        <div class="child">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit doloribus, impedit ipsa unde commodi
+                expedita necessitatibus explicabo sed officiis cupiditate laboriosam est quod dolores temporibus officia
+                deleniti sequi, et, ullam sapiente. Enim nihil dolore maiores? Distinctio maiores molestias iste saepe?
+                Vero magnam, corrupti iure voluptatem, esse, sapiente sint delectus autem cumque corporis unde quibusdam
+                illum in reiciendis eius aliquam dignissimos. Vel, illum, officia voluptatem architecto tempora ipsam
+                maxime harum nobis, quas autem eum laboriosam nisi totam aperiam in officiis provident dignissimos?
+                Ullam tempore provident ipsum natus doloremque quas quia cumque laboriosam, autem omnis doloribus
+                reiciendis sapiente rerum, eius nesciunt quibusdam! Necessitatibus ipsum tempora magnam ex aperiam
+                aspernatur, veniam odio? Laborum consequatur nam at, exercitationem suscipit numquam, aspernatur vero
+                hic, provident in illo! Tempora beatae doloribus voluptas, cum tenetur aut inventore accusantium quae
+                suscipit quos voluptatibus ut aspernatur, minus quasi a! Labore, delectus quos quas dolorum
+                reprehenderit inventore aspernatur sunt alias vero, nobis quasi in aliquam natus sed exercitationem
+                earum adipisci hic libero voluptatem atque, cumque veritatis fuga obcaecati! Temporibus sed molestias,
+                natus in repudiandae nisi inventore est consequatur voluptatum ab porro provident nostrum iste
+                voluptatibus alias! Iure quae ullam quaerat similique? At cupiditate veniam porro illum quaerat
+                laudantium! Sunt aspernatur saepe asperiores earum commodi? Aut quisquam voluptate praesentium illo
+                doloremque ab, dignissimos fugiat facilis laboriosam qui molestias quo earum magnam architecto non
+                aspernatur, unde debitis expedita dolor dolorum commodi iure iusto quaerat! Quas, excepturi pariatur.
+                Quia dolor autem reprehenderit mollitia beatae eius dignissimos inventore aperiam necessitatibus debitis
+                sapiente atque commodi unde nam doloremque exercitationem quae maiores ducimus quod repellendus, impedit
+                corrupti. Quas ducimus doloribus ea minima, voluptatibus eum nulla aperiam. Eum rem deserunt non, minima
+                quas sint, consequatur possimus, omnis iure voluptatem vel beatae dicta porro! Recusandae, laborum.
+                Reiciendis quasi eius eaque quidem amet vitae aliquam explicabo placeat cum aut, esse nostrum
+                consectetur eveniet voluptas aliquid. Quidem vitae est quam! Esse tenetur dicta at magnam expedita illum
+                quae, aspernatur suscipit eligendi vitae, magni odit harum sunt aperiam pariatur consectetur quo!
+                Blanditiis earum nostrum sunt consectetur cumque deleniti provident, non itaque voluptates! Ipsum id
+                fuga, dolores minima, voluptatem autem labore ad quae similique eaque laboriosam praesentium adipisci
+                laudantium necessitatibus! Eius, at quaerat, magni, voluptatibus eveniet repellendus dignissimos dolorum
+                placeat ea assumenda debitis eum doloremque deleniti quibusdam cum cumque perferendis ipsam inventore
+                tempore eligendi omnis? Fugiat itaque repudiandae officiis at quisquam quas nulla sunt aspernatur,
+                distinctio rem non sed hic sapiente fugit repellendus aliquam deleniti. A quia facilis, nam magnam
+                ipsam, distinctio minima at repellat esse necessitatibus dolore sapiente maiores alias fugiat quis.
+                Fugit, unde accusamus. Tempore molestiae minima recusandae ratione optio. Sed delectus minus ratione
+                consectetur doloribus. Autem similique cupiditate molestias sunt, sint illo consequatur ducimus
+                recusandae iure excepturi maiores. Hic vitae eligendi deleniti magni ratione excepturi similique? Libero
+                nam excepturi, soluta, laborum debitis, eaque quisquam magnam ab dolor dolorum hic eligendi atque
+                facilis nisi quibusdam? Natus doloremque, reiciendis quasi deserunt, omnis dicta recusandae dolorem
+                autem iusto neque excepturi quos minima quia quod odio cumque assumenda maiores sint impedit
+                praesentium. Consequuntur saepe deleniti possimus quaerat nostrum, perferendis mollitia iure vero
+                officia soluta? Laudantium qui nulla illum id dolores accusamus ab numquam eveniet, ea error incidunt
+                vitae saepe magni corrupti veniam officia, molestiae odit sint repudiandae perspiciatis adipisci
+                obcaecati commodi deserunt? Modi labore quas illo delectus dolorem ipsum dolores earum itaque molestias
+                fugiat. Nobis voluptatum animi atque quas veniam, magni ex quia, quisquam dolorum rem, ab delectus
+                reprehenderit est aspernatur sit incidunt. Debitis neque eveniet beatae culpa harum accusantium?
+                Deleniti illo perferendis voluptatum eligendi? Iste, voluptatum quae? Nemo excepturi labore sint soluta,
+                fugiat quidem mollitia totam maxime autem! Reiciendis quae soluta praesentium molestias nemo nobis iure
+                in assumenda, animi consequatur odit vitae voluptate libero nesciunt autem exercitationem earum magnam
+                at odio inventore asperiores. Magni reiciendis quisquam amet perspiciatis sequi. Quibusdam voluptatibus
+                aliquam enim, molestiae consectetur, ipsa illo omnis harum assumenda reiciendis facilis, ad eos
+                inventore debitis recusandae nihil expedita culpa nemo numquam maiores sit! Repudiandae adipisci,
+                mollitia ea cumque ipsam velit harum illum tenetur doloribus sunt iusto alias nesciunt atque nulla, non
+                quisquam ab quis amet, ipsum pariatur. Cumque, vero? Iure odit est aut rerum quidem quisquam maxime
+                deserunt ullam facere voluptates cum beatae eum, distinctio quod consectetur omnis modi numquam error
+                iste sequi neque non assumenda obcaecati. Veritatis sed alias suscipit atque dolor, repellat aliquam
+                aliquid, blanditiis cupiditate quos est nostrum ut. Sit totam eos id deleniti ipsum omnis obcaecati
+                maxime temporibus numquam ratione. Sapiente voluptatem magnam distinctio architecto vero excepturi.
+                Saepe vel maxime facilis illo? Optio commodi deleniti tempore excepturi a! Illo accusantium commodi
+                blanditiis eius libero aliquam facere dolores, eos delectus porro labore, atque dolor repellendus. Culpa
+                libero quos vero nisi? Iusto distinctio dolorem tempore, animi obcaecati assumenda perspiciatis pariatur
+                laudantium explicabo qui illum eum commodi, laboriosam molestiae libero iste, nihil beatae consequuntur
+                doloremque. Quod velit asperiores, voluptatem, amet sunt animi molestiae possimus quia ab minima dolorum
+                ullam id, odit quibusdam quaerat architecto? Voluptatem fuga voluptatibus esse sequi vel vitae omnis
+                nobis rem illo, tempore numquam quam assumenda quia inventore nostrum. Assumenda possimus voluptates
+                aliquid eos officiis dolor! Non reiciendis porro repellat magni sapiente a consectetur repudiandae
+                assumenda voluptatibus nihil maxime, dignissimos dolore? Voluptatem, deserunt aliquid sint dolores saepe
+                neque? Consectetur libero culpa cum. Porro, ab quia eligendi ducimus repudiandae maiores perspiciatis
+                corporis necessitatibus dolores repellat, ipsa ipsum doloribus quaerat iusto reiciendis aliquid illum
+                impedit corrupti, ut aut soluta asperiores libero reprehenderit. Est, ipsum neque nobis amet id enim
+                dignissimos fugit aperiam eligendi, beatae sed voluptatem saepe earum ducimus possimus, ea ullam! Quae
+                maiores excepturi ex non nam dolorem sed. Magni iure beatae, facere vel culpa consequuntur dignissimos.
+                Qui cumque vel aperiam blanditiis beatae optio vero possimus, enim assumenda quo dolor voluptates
+                corrupti eaque. Id aperiam quidem hic ad aliquid quas officiis ducimus at molestiae qui? Ex error magni
+                modi natus quod quam ut molestias libero rem. Fugiat ducimus delectus pariatur similique! Facilis
+                aliquam dolorem provident minima velit asperiores rem! Ducimus dolores tempora adipisci deleniti minima,
+                consectetur ratione, veritatis inventore quos explicabo at fugit unde harum obcaecati maiores
+                perferendis.</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="slider">
+            <div class="slides">
+                <img src="p4.jpg" alt="Image 1">
+                <img src="p5.jpg" alt="Image 2">
+                <img src="p6.jpg" alt="Image 3">
+                <img src="p10.jpg" alt="Image 4">
+                <img src="p15.jpg" alt="Image 5">
+                <img src="p16.jpg" alt="Image 6">
+                <img src="p17.jpg" alt="Image 7">
+                <img src="p10.jpg" alt="Image 8">
+            </div>
+        </div>
+        <div class="nav-buttons">
+            <button id="prev">Previous</button>
+            <button id="next">Next</button>
+        </div>
+    </div>
+    <footer>
+        <div class="footer">
+            <a class="icon" href="#"><i class="fa fa-instagram" style="font-size:24px"></i></a>
+            <a class="icon" href="#"><i class="fa fa-linkedin" style="font-size:24px"></i></a>
+            <a class="icon" href="#"><i class="fa fa-pinterest-p" style="font-size:24px"></i></a>
+            <a class="icon" href="#"><i class="fa fa-twitter" style="font-size:24px"></i></a>
+        </div>
+        <p>all policies and rights | designed by "KORI-Hich"</p>
+
+    </footer>
+    <script>//dark mood
+        function myfuncion() {
+            var element = document.body;
+            element.classList.toggle("dark-mood");
+        }
+        //search box
+        function searchText() {
+            let query = document.getElementById("searchBox").value.trim();
+            let contentDiv = document.getElementById("content");
+            let paragraphs = contentDiv.getElementsByTagName("p");
+            let found = false;
+
+            for (let p of paragraphs) {
+                p.innerHTML = p.innerHTML.replace(/<span class="highlight">|<\/span>/g, "");
+            }
+
+            if (query !== "") {
+                for (let p of paragraphs) {
+                    if (p.textContent.includes(query)) {
+                        p.innerHTML = p.textContent.replace(
+                            new RegExp(query, "gi"),
+                            match => `<span class="highlight">${match}</span>`
+                        );
+                        found = true;
+                    }
+                }
+            }
+
+            document.getElementById("notFoundMessage").style.display = found ? "none" : "block";
+        }
+        //scrolling
+        window.addEventListener('scroll', () => {
+            document.body.style.setProperty('--scroll', window.pageYOffset / (document.body.offsetHeight - window.innerHeight));
+        }, false);
+        //sandwich bar
+        function toggleNav() {
+            const nav = document.getElementById("navbar");
+            const menuIcon = document.querySelector(".menu-icon");
+
+            if (nav.style.width === "35%") {
+                nav.style.width = "0";
+                menuIcon.classList.remove("change");
+            } else {
+                nav.style.width = "35%";
+                menuIcon.classList.add("change");
+            }
+        }
+        //slide bar
+        const slides = document.querySelector('.slides');
+        const images = document.querySelectorAll('.slides img');
+        const nextButton = document.getElementById('next');
+        const prevButton = document.getElementById('prev');
+
+        let currentIndex = 0;
+        const slideWidth = images[0].clientWidth;
+        let slideInterval;
+
+        function goToSlide(index) {
+            if (index < 0) {
+                currentIndex = images.length - 1;
+            } else if (index >= images.length) {
+                currentIndex = 0;
+            } else {
+                currentIndex = index;
+            }
+            slides.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        }
+
+        function nextSlide() {
+            goToSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            goToSlide(currentIndex - 1);
+        }
+
+        function startAutoSlide() {
+            slideInterval = setInterval(nextSlide, 2000);
+        }
+
+        function stopAutoSlide() {
+            clearInterval(slideInterval);
+        }
+
+        nextButton.addEventListener('click', () => {
+            stopAutoSlide();
+            nextSlide();
+            startAutoSlide();
+        });
+
+        prevButton.addEventListener('click', () => {
+            stopAutoSlide();
+            prevSlide();
+            startAutoSlide();
+        });
+
+        startAutoSlide();
+        //scrolling image
+        function revealOnScroll() {
+            const images = document.querySelectorAll("img");
+            const windowHeight = window.innerHeight;
+
+            images.forEach(image => {
+                const imageTop = image.getBoundingClientRect().top;
+
+                if (imageTop < windowHeight - 100) {
+                    image.classList.add("show");
+                }
+            });
+        }
+
+        window.addEventListener("scroll", revealOnScroll);</script>
+</body>
+
+</html>
