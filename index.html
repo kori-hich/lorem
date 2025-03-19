@@ -12,8 +12,13 @@
             scroll-behavior: smooth;
         }
 
+        body {
+            background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.1));
+        }
+
         header {
             position: fixed;
+            z-index: 1000;
         }
 
         #a {
@@ -230,9 +235,6 @@
             .icon {
                 color: #000000;
             }
-            .topimage img{
-                box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.5);
-            }
         }
 
         .highlight {
@@ -308,16 +310,18 @@
             width: 0px;
             height: 100%;
             position: fixed;
-            background-color: #000000;
-            transition: 0.5s;
+            background-color: rgb(0, 0, 0);
+            transition: 1s;
             padding-top: 60px;
             color: white;
             text-align: center;
             left: 9px;
             top: 9px;
+            display: none;
         }
 
         .side-nav a {
+            z-index: 1000;
             text-decoration: none;
             font-size: 22px;
             color: white;
@@ -383,9 +387,10 @@
                 overflow-x: hidden;
             }
 
-            /* .slider {
+            .slider {
                 width: 250px;
-            } */
+                /*?*/
+            }
         }
 
         .slider {
@@ -431,12 +436,13 @@
         .container {
             text-align: center;
         }
-        .topimage{
+
+        .topimage {
             text-align: center;
+            border-radius: 50px;
         }
+
         .topimage img {
-            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-            border-radius: 25px;
             display: inline-block;
             width: 150px;
             height: 300px;
@@ -444,6 +450,13 @@
             opacity: 0;
             transform: translateY(200px);
             transition: all 1s ease-in-out;
+            box-shadow: 5px 10px 5px rgba(0, 0, 0, 0.3);
+            border-radius: 25px;
+        }
+
+        .topimage img:hover {
+            bottom: 20px;
+            position: relative;
         }
 
         img.show {
@@ -499,6 +512,7 @@
         <img src="p4.jpg">
         <img src="p17.jpg">
         <img src="p10.jpg">
+        <img src="p9.jpg">
     </div>
     <div id="content" class="parent">
         <div class="child">
@@ -608,7 +622,8 @@
         <p>all policies and rights | designed by "KORI-Hich"</p>
 
     </footer>
-    <script>//dark mood
+    <script>
+        //dark mood
         function myfuncion() {
             var element = document.body;
             element.classList.toggle("dark-mood");
@@ -646,15 +661,23 @@
         function toggleNav() {
             const nav = document.getElementById("navbar");
             const menuIcon = document.querySelector(".menu-icon");
-
+            const hidden = document.querySelector(".side-nav")
             if (nav.style.width === "35%") {
                 nav.style.width = "0";
                 menuIcon.classList.remove("change");
             } else {
                 nav.style.width = "35%";
                 menuIcon.classList.add("change");
+
+            }
+            if (hidden.style.display == "none" || hidden.style.display == "") {
+                hidden.style.display = "block";
+            }
+            else {
+                hidden.style.display = "none";
             }
         }
+
         //slide bar
         const slides = document.querySelector('.slides');
         const images = document.querySelectorAll('.slides img');
@@ -718,8 +741,8 @@
                 }
             });
         }
-
-        window.addEventListener("scroll", revealOnScroll);</script>
+        window.addEventListener("scroll", revealOnScroll);
+    </script>
 </body>
 
 </html>
